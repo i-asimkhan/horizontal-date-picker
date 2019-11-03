@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Container(
+          padding: EdgeInsets.all(20),
             child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -36,9 +37,9 @@ class _MyAppState extends State<MyApp> {
                 });},
                 inintialDate: DateTime.now(),
                 height: 60,
-                builder: (context, i, d) {
+                builder: (context, i, d,width) {
                   if (i != 2)
-                    return DateRow(d
+                    return DateRow(d ,width: width,
                    );
                   else
                     return DateRow(
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                       background: Colors.blue,
                       chosenDayStyle: TextStyle(color: Colors.white),
                       chosenDayOfWeekStyle: TextStyle(color: Colors.white),
-                      chosenMonthStyle: TextStyle(color: Colors.white),
+                      chosenMonthStyle: TextStyle(color: Colors.white),width: width,
                     );
                 },
               ),

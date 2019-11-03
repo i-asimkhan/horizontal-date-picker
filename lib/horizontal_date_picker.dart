@@ -50,43 +50,48 @@ class _HorizontalDateState extends State<HorizontalDatePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return SwipeDetector(
-      onSwipeLeft: () {
-        setState(() {
-          initialDate = initialDate.add(Duration(days: 1));
-          widget.onDateChoosen(initialDate);
-        });
+    return LayoutBuilder(
+      builder: (context, boxConstraint) {
+        print('width : '+boxConstraint.maxWidth.toString());
+        return SwipeDetector(
+          onSwipeLeft: () {
+            setState(() {
+              initialDate = initialDate.add(Duration(days: 1));
+              widget.onDateChoosen(initialDate);
+            });
 
-        print('leftSwip');
-      },
-      onSwipeRight: () {
-        setState(() {
-          initialDate = initialDate.add(Duration(days: -1));
-          widget.onDateChoosen(initialDate);
-        });
-        print('rightSwip');
-      },
-      child: Container(
-        height: widget.height,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (context, i) {
-            return widget.builder(
-                context, i, getCurrentDate(i, initalDateIndex, initialDate));
+            print('leftSwip');
+          },
+          onSwipeRight: () {
+            setState(() {
+              initialDate = initialDate.add(Duration(days: -1));
+              widget.onDateChoosen(initialDate);
+            });
+            print('rightSwip');
+          },
+          child: Container(
+            height: widget.height,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 5,
+              itemBuilder: (context, i) {
+                return widget.builder(context, i,
+                    getCurrentDate(i, initalDateIndex, initialDate),boxConstraint.maxWidth/5);
 /*             DateRow(getCurrentDate(i, initalDateIndex, initialDate))
  */
-          },
-        ),
-      ),
-      swipeConfiguration: SwipeConfiguration(
-          horizontalSwipeMaxHeightThreshold: 100.0,
-          horizontalSwipeMinDisplacement: 50.0,
-          horizontalSwipeMinVelocity: 100.0),
+              },
+            ),
+          ),
+          swipeConfiguration: SwipeConfiguration(
+              horizontalSwipeMaxHeightThreshold: 100.0,
+              horizontalSwipeMinDisplacement: 50.0,
+              horizontalSwipeMinVelocity: 100.0),
+        );
+      },
     );
   }
 }
 
 typedef RawDateBuilder = Widget Function(
-    BuildContext context, int index, DateTime rawDateTime);
+    BuildContext context, int index, DateTime rawDateTime,double maxWidth);
 typedef OnDateChoosen = void Function(DateTime dateChoosen);
