@@ -7,9 +7,9 @@ class DateRow extends StatelessWidget {
   ///constructor
   DateRow(this.dateTime,
       {this.background,
-      this.chosenDayOfWeekStyle,
-      this.chosenDayStyle,
-      this.chosenMonthStyle,
+      this.selectedDayOfWeekStyle,
+      this.selectedDayStyle,
+      this.selectedMonthStyle,
       this.width});
 //
   double width;
@@ -20,14 +20,14 @@ class DateRow extends StatelessWidget {
   ///row date
   final DateTime dateTime;
 
-  ///chosen  month style
-  TextStyle chosenMonthStyle;
+  ///selected  month style
+  TextStyle selectedMonthStyle;
 
-  ///chosen day style
-  TextStyle chosenDayStyle;
+  ///selected day style
+  TextStyle selectedDayStyle;
 
-  ///chosen weekDay style
-  TextStyle chosenDayOfWeekStyle;
+  ///selected weekDay style
+  TextStyle selectedDayOfWeekStyle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,15 +45,15 @@ class DateRow extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       DateFormat('EEE').format(dateTime),
-                      style: chosenDayOfWeekStyle,
+                      style: selectedDayOfWeekStyle,
                     ),
                     Text(
                       dateTime.day.toString(),
-                      style: chosenDayStyle,
+                      style: selectedDayStyle,
                     ),
                     Text(
                       DateFormat('MMM').format(dateTime),
-                      style: chosenMonthStyle,
+                      style: selectedMonthStyle,
                     )
                   ],
                 ),

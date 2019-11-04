@@ -45,9 +45,9 @@ class _MyAppState extends State<MyApp> {
                     return DateRow(
                       d,
                       background: Colors.blue,
-                      chosenDayStyle: TextStyle(color: Colors.white),
-                      chosenDayOfWeekStyle: TextStyle(color: Colors.white),
-                      chosenMonthStyle: TextStyle(color: Colors.white),width: width,
+                      selectedDayStyle: TextStyle(color: Colors.white),
+                      selectedDayOfWeekStyle: TextStyle(color: Colors.white),
+                      selectedMonthStyle: TextStyle(color: Colors.white),width: width,
                     );
                 },
               ),
