@@ -1,0 +1,13 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "dart.flutterHotReloadOnSave": true,
+    // "dart.analyzerAdditionalArgs": [
+    //     "--enable-completion-model"
+    // ],
+    // "editor.suggestSelection": "first"
+}
